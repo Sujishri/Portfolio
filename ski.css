@@ -1,0 +1,243 @@
+#skill{
+    background-color: black;
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    border: 1px solid black;
+    overflow-x: hidden;
+}
+
+
+.focus-in-expand{animation:focus-in-expand .8s cubic-bezier(.25,.46,.45,.94) both}
+@keyframes focus-in-expand{0%{letter-spacing:-.5em;filter:blur(12px);opacity:0}100%{filter:blur(0);opacity:1}}
+
+
+.skill-page{
+    margin-top: 90px;
+    width: 100%;
+}
+
+
+.ski-clo{
+  float:right;
+  margin-right:20px;
+  
+  text-decoration: none;
+  color:#fff;
+
+   font-size: 40px;
+}
+.ski-clo:hover{
+   text-decoration: none;
+   color:#fff;
+    cursor: pointer;
+ z-index: 1000;
+}
+
+
+.skill-bars {
+    padding: 25px 30px;
+    width: 100%;
+    margin-top: 50px;
+    background: rgb(24, 23, 23);
+    color:#fff;
+    box-shadow: 0 0px 30px  rgb(0, 158, 102);
+    border-radius: 10px;
+  }
+  
+  .skill-bars .bar {
+    margin: 20px 0;
+  }
+  
+  .skill-bars .bar:first-child {
+    margin-top: 0px;
+  }
+  
+  .skill-bars .bar .info {
+    margin-bottom: 5px;
+  }
+  
+  .skill-bars .bar .info span {
+    font-weight: 500;
+    font-size: 17px;
+    opacity: 0;
+    animation: showText 0.5s 1s linear forwards;
+  }
+  
+  @keyframes showText {
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  .skill-bars .bar .progress-line {
+    height: 10px;
+    width: 100%;
+    background: #fff;
+    position: relative;
+    transform: scaleX(0);
+    transform-origin: left;
+    border-radius: 10px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05),
+      0 1px rgba(255, 255, 255, 0.8);
+    animation: animate 1s cubic-bezier(1, 0, 0.5, 1) forwards;
+  }
+  
+  @keyframes animate {
+    100% {
+      transform: scaleX(1);
+    }
+  }
+  
+  .bar .progress-line span {
+    height: 100%;
+    position: absolute;
+    border-radius: 10px;
+    transform: scaleX(0);
+    transform-origin: left;
+    background: rgb(0, 158, 102);
+    animation: animate 1s 1s cubic-bezier(1, 0, 0.5, 1) forwards;
+  }
+  
+  .bar .progress-line.html span {
+    width: 90%;
+  }
+  
+  .bar .progress-line.css span {
+    width: 60%;
+  }
+  
+  .bar .progress-line.tableau span {
+    width: 55%;
+  }
+  
+  .bar .progress-line.java span {
+    width: 80%;
+  }
+  
+  .bar .progress-line.mysql span {
+    width: 75%;
+  }
+  
+  .progress-line span::before {
+    position: absolute;
+    content: "";
+    top: -10px;
+    right: 0;
+    height: 0;
+    width: 0;
+    border: 7px solid transparent;
+    border-bottom-width: 0px;
+    border-right-width: 0px;
+    border-top-color: #000;
+    opacity: 0;
+    animation: showText2 0.5s 1.5s linear forwards;
+  }
+  
+  .progress-line span::after {
+    position: absolute;
+    top: -28px;
+    right: 0;
+    font-weight: 500;
+    background: #000;
+    color: rgb(0, 158, 102);
+    padding: 1px 8px;
+    font-size: 12px;
+    border-radius: 3px;
+    opacity: 0;
+    animation: showText2 0.5s 1.5s linear forwards;
+  }
+  
+  @keyframes showText2 {
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  .progress-line.html span::after {
+    content: "90%";
+  }
+  
+  .progress-line.css span::after {
+    content: "60%";
+  }
+  
+  .progress-line.tableau span::after {
+    content: "55%";
+  }
+  
+  .progress-line.java span::after {
+    content: "80%";
+  }
+  
+  .progress-line.mysql span::after {
+    content: "75%";
+  }
+  
+  
+  
+  
+
+
+  @keyframes growProgressBar {
+    0%, 33% { --pgPercentage: 0; }
+    100% { --pgPercentage: var(--value); }
+  }
+  
+  @property --pgPercentage {
+    syntax: '<number>';
+    inherits: false;
+    initial-value: 0;
+  }
+  
+  div[role="progressbar"] {
+    --size: 12rem;
+    --fg: rgb(0, 158, 102);
+    --bg: #def;
+    --pgPercentage: var(--value);
+    animation: growProgressBar 3s 1 forwards;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: 
+      radial-gradient(closest-side, white 80%, transparent 0 99.9%, white 0),
+      conic-gradient(var(--fg) calc(var(--pgPercentage) * 1%), var(--bg) 0)
+      ;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: calc(var(--size) / 5);
+    color: var(--fg);
+
+    margin-top:50px;
+   
+    margin-left:100px;
+  }
+  
+  div[role="progressbar"]::before {
+    counter-reset: percentage var(--value);
+    content: counter(percentage) '%';
+  }
+  
+
+
+  .soft{
+    font-size: 13px;
+    margin-top: -50px;
+    color: #000;
+    text-align: center;
+  }
+
+
+  @media (max-width: 768px) {
+
+.soft-h{
+  margin-top:100px;
+}
+  
+  }
+  
+ 
+  
+

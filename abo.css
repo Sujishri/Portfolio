@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:400");
+
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+#me {
+    background-color: black;
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    border: 1px solid black;
+    overflow-x: hidden;
+}
+
+.focus-in-expand{animation:focus-in-expand .8s cubic-bezier(.25,.46,.45,.94) both}
+@keyframes focus-in-expand{0%{letter-spacing:-.5em;filter:blur(12px);opacity:0}100%{filter:blur(0);opacity:1}}
+
+
+.me-full{
+    margin-top:90px;
+}
+
+.me-p{
+    color:rgb(159, 159, 159);
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 29px;
+}
+
+
+
+.me-details{
+    margin-top:40px;
+}
+
+
+
+
+.personal{
+    color:rgb(159, 159, 159);
+    
+}
+
+.per{
+    color:#fff;
+   
+}
+
+
+.ab-clo{
+   float:right;
+margin-right:20px;
+   text-decoration: none;
+   color:#fff;
+
+    font-size: 40px;
+}
+.ab-clo:hover{
+    text-decoration: none;
+    color:#fff;
+     cursor: pointer;
+  z-index: 1000;
+}
+
+
+.cv-butt{
+    margin-top:30px;
+    background-color:rgb(0, 158, 102) ;
+    color:#fff;
+    font-size:15px;
+    padding:10px  50px;
+    border-radius: 25px;
+
+}
+
+
+
+
+
+
+
+
+ .float-glow {
+    animation: floatGlow 4s ease-in-out infinite;
+}
+
+@keyframes floatGlow {
+    0%, 100% {
+        transform: translateY(0);
+        box-shadow: 0 0 35px rgba(0, 158, 102, 0.4);
+    }
+    50% {
+        transform: translateY(-10px);
+        box-shadow: 0 0 65px rgba(0, 158, 102, 0.7);
+    }
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+    .me-pic{
+
+        margin-top: 50px;
+    }
+}

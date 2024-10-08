@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cont.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <title>Contact</title>
+</head>
+<body>
+    <section id="call">
+        <a href="index.html" class="con-clo">X</a>
+        <h4 class="text-center" style="color:rgb(159, 159, 159); margin-top:70px; ">
+            Feel free to contact me anytime
+        </h4>
+        <h2 class="text-center focus-in-expand" style="color:#fff; font-size: 46px; font-weight: 700; ">
+            Get in Touch
+        </h2>
+
+        <div class="call-page">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg-4">
+                        <input type="text" class="call-form bounce" name="Name" id="name" placeholder="Name" required>
+                    </div>
+                    <div class="col-lg-4 con-ph">
+                        <input type="string" class="call-form bounce" name="number" id="number" placeholder="Phone Number" pattern="\d{10}" maxlength="10" required>
+                    </div>
+                    <div class="col-lg-2"></div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg-8">
+                        <input type="email" class="call-form bounce" name="Email" id="email" placeholder="Email" required style="margin-top: 20px;">
+                    </div>
+                    <div class="col-lg-2"></div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg-8">
+                        <input type="text" class="call-form bounce" name="Subject" id="subject" placeholder="Subject" required style="margin-top: 20px;">
+                    </div>
+                    <div class="col-lg-2"></div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg-8">
+                        <textarea name="message" class="call-m bounce" id="message" placeholder="Message" rows="8" required style="margin-top: 20px;width:100%;"></textarea>
+                    </div>
+                    <div class="col-lg-2"></div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-5"></div>
+                    <div class="col-lg-2">
+                        <button type="submit" class="call-b pulse" style="margin-top: 30px;" onclick="submitForm()">Send Message</button>
+                    </div>
+                    <div class="col-lg-5"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function submitForm() {
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('number').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+
+            // Prepare the data object
+            const formData = {
+                name: name,
+                phone: phone,
+                email: email,
+                subject: subject,
+                message: message
+            };
+
+            // Send data to the server using fetch API
+            fetch('http://localhost:5000/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.msg);
+                // Clear form inputs after successful submission
+                document.getElementById('name').value = '';
+                document.getElementById('number').value = '';
+                document.getElementById('email').value = '';
+                document.getElementById('subject').value = '';
+                document.getElementById('message').value = '';
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Failed to send message!');
+            });
+        }
+    </script>
+</body>
+</html>
