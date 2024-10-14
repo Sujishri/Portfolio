@@ -4,6 +4,8 @@
     min-height: 100vh;
     margin: 0;
     padding: 0;
+   
+    
     border: 1px solid black;
     overflow-x: hidden;
 }
@@ -36,208 +38,117 @@
 }
 
 
-.skill-bars {
-    padding: 25px 30px;
-    width: 100%;
-    margin-top: 50px;
-    background: rgb(24, 23, 23);
-    color:#fff;
-    box-shadow: 0 0px 30px  rgb(0, 158, 102);
-    border-radius: 10px;
-  }
-  
-  .skill-bars .bar {
-    margin: 20px 0;
-  }
-  
-  .skill-bars .bar:first-child {
-    margin-top: 0px;
-  }
-  
-  .skill-bars .bar .info {
-    margin-bottom: 5px;
-  }
-  
-  .skill-bars .bar .info span {
-    font-weight: 500;
-    font-size: 17px;
-    opacity: 0;
-    animation: showText 0.5s 1s linear forwards;
-  }
-  
-  @keyframes showText {
-    100% {
-      opacity: 1;
-    }
-  }
-  
-  .skill-bars .bar .progress-line {
-    height: 10px;
-    width: 100%;
-    background: #fff;
-    position: relative;
-    transform: scaleX(0);
-    transform-origin: left;
-    border-radius: 10px;
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05),
-      0 1px rgba(255, 255, 255, 0.8);
-    animation: animate 1s cubic-bezier(1, 0, 0.5, 1) forwards;
-  }
-  
-  @keyframes animate {
-    100% {
-      transform: scaleX(1);
-    }
-  }
-  
-  .bar .progress-line span {
-    height: 100%;
-    position: absolute;
-    border-radius: 10px;
-    transform: scaleX(0);
-    transform-origin: left;
-    background: rgb(0, 158, 102);
-    animation: animate 1s 1s cubic-bezier(1, 0, 0.5, 1) forwards;
-  }
-  
-  .bar .progress-line.html span {
-    width: 90%;
-  }
-  
-  .bar .progress-line.css span {
-    width: 60%;
-  }
-  
-  .bar .progress-line.tableau span {
-    width: 55%;
-  }
-  
-  .bar .progress-line.java span {
-    width: 80%;
-  }
-  
-  .bar .progress-line.mysql span {
-    width: 75%;
-  }
-  
-  .progress-line span::before {
-    position: absolute;
-    content: "";
-    top: -10px;
-    right: 0;
-    height: 0;
-    width: 0;
-    border: 7px solid transparent;
-    border-bottom-width: 0px;
-    border-right-width: 0px;
-    border-top-color: #000;
-    opacity: 0;
-    animation: showText2 0.5s 1.5s linear forwards;
-  }
-  
-  .progress-line span::after {
-    position: absolute;
-    top: -28px;
-    right: 0;
-    font-weight: 500;
-    background: #000;
-    color: rgb(0, 158, 102);
-    padding: 1px 8px;
-    font-size: 12px;
-    border-radius: 3px;
-    opacity: 0;
-    animation: showText2 0.5s 1.5s linear forwards;
-  }
-  
-  @keyframes showText2 {
-    100% {
-      opacity: 1;
-    }
-  }
-  
-  .progress-line.html span::after {
-    content: "90%";
-  }
-  
-  .progress-line.css span::after {
-    content: "60%";
-  }
-  
-  .progress-line.tableau span::after {
-    content: "55%";
-  }
-  
-  .progress-line.java span::after {
-    content: "80%";
-  }
-  
-  .progress-line.mysql span::after {
-    content: "75%";
-  }
-  
-  
-  
-  
 
-
-  @keyframes growProgressBar {
-    0%, 33% { --pgPercentage: 0; }
-    100% { --pgPercentage: var(--value); }
-  }
+.c{
   
-  @property --pgPercentage {
-    syntax: '<number>';
-    inherits: false;
-    initial-value: 0;
-  }
-  
-  div[role="progressbar"] {
-    --size: 12rem;
-    --fg: rgb(0, 158, 102);
-    --bg: #def;
-    --pgPercentage: var(--value);
-    animation: growProgressBar 3s 1 forwards;
-    width: var(--size);
-    height: var(--size);
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    background: 
-      radial-gradient(closest-side, white 80%, transparent 0 99.9%, white 0),
-      conic-gradient(var(--fg) calc(var(--pgPercentage) * 1%), var(--bg) 0)
-      ;
-    font-family: Helvetica, Arial, sans-serif;
-    font-size: calc(var(--size) / 5);
-    color: var(--fg);
-
-    margin-top:50px;
-   
-    margin-left:100px;
-  }
-  
-  div[role="progressbar"]::before {
-    counter-reset: percentage var(--value);
-    content: counter(percentage) '%';
-  }
-  
-
-
-  .soft{
-    font-size: 13px;
-    margin-top: -50px;
-    color: #000;
-    text-align: center;
-  }
-
-
-  @media (max-width: 768px) {
-
-.soft-h{
-  margin-top:100px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
 }
-  
-  }
-  
- 
-  
 
+.c .card{
+  position: relative;
+  cursor: pointer;
+}
+
+.c .card .face{
+  width: 300px;
+  height: 200px;
+  transition: 0.5s;
+}
+
+.c .card .face.face1{
+  position: relative;
+  background: #333;
+ 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  transform: translateY(100px);
+}
+
+.c .card:hover .face.face1{
+  background:rgb(0, 158, 102);
+  transform: translateY(0);
+}
+
+.c .card .face.face1 .content{
+  opacity: 0.2;
+  transition: 0.5s;
+  
+}
+
+.c .card:hover .face.face1 .content{
+  opacity: 1;
+}
+
+
+
+.c .card .face.face1 .content h3{
+  margin: 10px 0 0;
+  padding: 0;
+  color:#fff;
+  text-align: center;
+  font-size: 1.5em;
+  font-size: 30px;
+}
+
+
+
+.c .card .face.face2{
+  position: relative;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 5px 20px  rgb(0, 158, 102);
+  transform: translateY(-100px);
+}
+
+.c .card:hover .face.face2{
+  transform: translateY(0);
+}
+
+.c .card .face.face2 .content p{
+  margin: 0;
+  padding: 0;
+}
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+  .skill-page {
+      margin-top: 20px; 
+  }
+
+  .c {
+      flex-direction: column; 
+      align-items: center; 
+  }
+
+  .c .card {
+      margin-bottom: 20px;
+      width: 90%; 
+  }
+
+  .c .card .face {
+      width: 100%; 
+  }
+
+  .c .card .face.face1 h3,
+  .c .card .face.face2 .content p {
+      font-size: 1.2em; 
+  }
+
+  .ski-clo {
+      margin-right: 10px; 
+      font-size: 30px; 
+  }
+}
